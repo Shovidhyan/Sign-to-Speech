@@ -1,9 +1,9 @@
 {
+  "homepage": "https://shovidhyan.github.io/Indian-Sign-Language",
   "name": "asl-recognition-app",
   "version": "1.0.0",
   "private": true,
   "description": "Indian Sign Language Translator using React, Vite, and TensorFlow.js",
-  "homepage": "https://shovidhyan.github.io/Indian-Sign-Language-Translator/",
   "type": "module",
   "scripts": {
     "dev": "vite",
