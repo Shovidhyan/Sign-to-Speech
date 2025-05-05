@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@google-cloud/translate": "^8.0.2",
