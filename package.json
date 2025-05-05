@@ -1,5 +1,5 @@
 {
-  "homepage": "https://shovidhyan.github.io/Indian-Sign-Language",
+  "homepage": "https://Shovidhyan.github.io/Sign-to-Speech",
   "name": "asl-recognition-app",
   "version": "1.0.0",
   "private": true,
@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
+
   },
   "dependencies": {
     "@google-cloud/translate": "^8.0.2",
