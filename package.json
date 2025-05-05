@@ -1,5 +1,5 @@
 {
-  "homepage": "https://shovidhyan.github.io/sign",
+  "homepage": "https://github.com/Shovidhyan/Signs.git",
   "name": "asl-recognition-app",
   "version": "1.0.0",
   "private": true,
@@ -11,8 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@google-cloud/translate": "^8.0.2",
