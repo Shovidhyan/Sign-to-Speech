@@ -444,44 +444,44 @@ const ASLRecognition: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] p-4 sm:p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl sm:text-4xl font-bold text-center mb-4 sm:mb-8 text-[#8b4c2c]">ISL Recognition</h1>
+    <div className="min-h-screen bg-[#f5f5f5] p-0">
+      <div className="w-full max-w-[100vw] mx-auto">
+        <h1 className="text-xl font-bold text-center mb-0 text-[#8b4c2c]">ISL Recognition</h1>
         
-        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
-            <div className="flex flex-wrap gap-2 sm:gap-4 w-full sm:w-auto">
+        <div className="bg-white rounded-lg shadow-lg p-1">
+          <div className="flex flex-col gap-0 mb-1">
+            <div className="flex gap-1 w-full">
               <button
                 onClick={() => setMode('capture')}
-                className={`px-4 sm:px-6 py-2 rounded-lg flex-1 sm:flex-none ${
+                className={`px-3 py-2 rounded-lg flex-1 ${
                   mode === 'capture'
                     ? 'bg-[#8b4c2c] text-white'
                     : 'bg-[#c9a383] text-[#8b4c2c]'
                 }`}
               >
-                Capture Mode
+                Capture
               </button>
               <button
                 onClick={() => setMode('predict')}
-                className={`px-4 sm:px-6 py-2 rounded-lg flex-1 sm:flex-none ${
+                className={`px-3 py-2 rounded-lg flex-1 ${
                   mode === 'predict'
                     ? 'bg-[#8b4c2c] text-white'
                     : 'bg-[#c9a383] text-[#8b4c2c]'
                 }`}
               >
-                Predict Mode
+                Predict
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="relative aspect-video">
+          <div className="flex flex-col gap-0">
+            <div className="relative w-full h-96 mt-0 mb-0">
               <Webcam
                 ref={webcamRef}
                 className="w-full h-full rounded-lg transform -scale-x-100"
                 videoConstraints={{
-                  width: 1280,
-                  height: 720,
+                  width: 720,
+                  height: 1280,
                   facingMode: "user"
                 }}
               />
@@ -491,41 +491,41 @@ const ASLRecognition: React.FC = () => {
               />
             </div>
 
-            <div className="space-y-4">
-              <div className="bg-[#f5f5f5] p-4 rounded-lg">
-                <h2 className="text-lg font-semibold mb-2 text-[#8b4c2c]">Current Sign</h2>
-                <p className="text-2xl font-bold text-[#8b4c2c]">{mode === 'predict' ? predictedSign : prediction}</p>
+            <div className="space-y-3">
+              <div className="bg-[#f5f5f5] p-3 rounded-lg">
+                <h2 className="text-base font-semibold mb-1 text-[#8b4c2c]">Current Sign</h2>
+                <p className="text-xl font-bold text-[#8b4c2c]">{mode === 'predict' ? predictedSign : prediction}</p>
               </div>
 
               {mode === 'capture' && (
-                <div className="space-y-4">
-                  <div className="flex flex-col sm:flex-row gap-2">
+                <div className="space-y-3">
+                  <div className="flex flex-col gap-2">
                     <input
                       type="text"
                       value={newLabel}
                       onChange={(e) => setNewLabel(e.target.value)}
                       placeholder="Enter sign label"
-                      className="px-4 py-2 rounded-lg border border-[#c9a383] flex-1 focus:outline-none focus:ring-2 focus:ring-[#8b4c2c]"
+                      className="px-3 py-2 rounded-lg border border-[#c9a383] w-full focus:outline-none focus:ring-2 focus:ring-[#8b4c2c]"
                     />
                     <button
                       onClick={captureSign}
-                      className="px-4 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2 hover:bg-[#6b3c22] transition-colors"
+                      className="px-3 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2"
                     >
-                      <Camera className="w-5 h-5" />
+                      <Camera className="w-4 h-4" />
                       Capture
                     </button>
                   </div>
                   <div className="flex gap-2">
                     <button
                       onClick={downloadDataset}
-                      className="px-4 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2 flex-1 hover:bg-[#6b3c22] transition-colors"
+                      className="px-3 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2 flex-1"
                     >
-                      <Download className="w-5 h-5" />
-                      Download Dataset
+                      <Download className="w-4 h-4" />
+                      Save
                     </button>
-                    <label className="px-4 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2 flex-1 cursor-pointer hover:bg-[#6b3c22] transition-colors">
-                      <Upload className="w-5 h-5" />
-                      Load Dataset
+                    <label className="px-3 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2 flex-1 cursor-pointer">
+                      <Upload className="w-4 h-4" />
+                      Load
                       <input
                         type="file"
                         accept=".json"
@@ -537,101 +537,97 @@ const ASLRecognition: React.FC = () => {
                 </div>
               )}
 
-              <div className="space-y-2">
-                <button
-                  onClick={addToSentence}
-                  className="w-full px-4 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2 hover:bg-[#6b3c22] transition-colors"
-                >
-                  <Play className="w-5 h-5" />
-                  Add to Sentence
-                </button>
-              </div>
+              <button
+                onClick={addToSentence}
+                className="w-full px-3 py-2 rounded-lg bg-[#8b4c2c] text-white flex items-center justify-center gap-2"
+              >
+                <Play className="w-4 h-4" />
+                Add to Sentence
+              </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-            {mode === 'predict' && (
-              <>
-                <div className="bg-[#f5f5f5] p-4 rounded-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <h2 className="text-lg font-semibold text-[#8b4c2c]">Current Sentence</h2>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => {
-                          if (sentence) {
-                            const speech = new SpeechSynthesisUtterance(sentence);
-                            speech.lang = 'en-US';
-                            speech.rate = 1.5; // Increase the rate for faster speech
-                            window.speechSynthesis.speak(speech);
-                          }
-                        }}
-                        className="p-2 rounded-full bg-[#c9a383] hover:bg-[#b89373] transition-colors"
-                        title="Speak current sentence"
-                      >
-                        <Volume2 className="w-5 h-5 text-[#8b4c2c]" />
-                      </button>
-                      <button
-                        onClick={() => setSentence('')}
-                        className="p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
-                        title="Clear current sentence"
-                      >
-                        <X className="w-5 h-5 text-white" />
-                      </button>
-                    </div>
+          {mode === 'predict' && (
+            <div className="space-y-3 mt-4">
+              <div className="bg-[#f5f5f5] p-3 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-base font-semibold text-[#8b4c2c]">Current Sentence</h2>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => {
+                        if (sentence) {
+                          const speech = new SpeechSynthesisUtterance(sentence);
+                          speech.lang = 'en-US';
+                          speech.rate = 1.5;
+                          window.speechSynthesis.speak(speech);
+                        }
+                      }}
+                      className="p-1.5 rounded-full bg-[#c9a383]"
+                      title="Speak current sentence"
+                    >
+                      <Volume2 className="w-4 h-4 text-[#8b4c2c]" />
+                    </button>
+                    <button
+                      onClick={() => setSentence('')}
+                      className="p-1.5 rounded-full bg-red-500"
+                      title="Clear current sentence"
+                    >
+                      <X className="w-4 h-4 text-white" />
+                    </button>
                   </div>
-                  <p className="text-xl text-[#8b4c2c]">{sentence}</p>
                 </div>
+                <p className="text-lg text-[#8b4c2c]">{sentence}</p>
+              </div>
 
-                <div className="bg-[#f5f5f5] p-4 rounded-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <h2 className="text-lg font-semibold text-[#8b4c2c]">Translated Words</h2>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={speakTranslatedText} // Speak the translated words
-                        className="p-2 rounded-full bg-[#c9a383] hover:bg-[#b89373] transition-colors"
-                        title="Speak translated words"
-                        disabled={!translatedWords.length || !selectedLanguage} // Disable if no translation or language is selected
-                      >
-                        <Volume2 className="w-5 h-5 text-[#8b4c2c]" />
-                      </button>
-                      <button
-                        onClick={clearTranslatedWords} // Clear the translated words
-                        className="p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
-                        title="Clear translated words"
-                      >
-                        <X className="w-5 h-5 text-white" />
-                      </button>
-                    </div>
+              <div className="bg-[#f5f5f5] p-3 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-base font-semibold text-[#8b4c2c]">Translation</h2>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={speakTranslatedText}
+                      className="p-1.5 rounded-full bg-[#c9a383]"
+                      title="Speak translation"
+                      disabled={!translatedWords.length || !selectedLanguage}
+                    >
+                      <Volume2 className="w-4 h-4 text-[#8b4c2c]" />
+                    </button>
+                    <button
+                      onClick={clearTranslatedWords}
+                      className="p-1.5 rounded-full bg-red-500"
+                      title="Clear translation"
+                    >
+                      <X className="w-4 h-4 text-white" />
+                    </button>
                   </div>
-                  {isTranslating ? (
-                    <p className="text-[#8b4c2c]">Translating...</p>
-                  ) : translationError ? (
-                    <p className="text-red-500">{translationError}</p>
-                  ) : (
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {translatedWords.map((word, index) => (
-                        <span key={index} className="text-xl text-[#8b4c2c] bg-[#c9a383] px-3 py-1 rounded-lg">
-                          {word}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  <select
-                    value={selectedLanguage}
-                    onChange={(e) => setSelectedLanguage(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-[#c9a383] text-sm focus:outline-none focus:ring-2 focus:ring-[#8b4c2c]"
-                  >
-                    <option value="">Select Language</option>
-                    {languages.map((lang) => (
-                      <option key={lang.code} value={lang.code}>
-                        {lang.name}
-                      </option>
-                    ))}
-                  </select>
                 </div>
-              </>
-            )}
-          </div>
+                {isTranslating ? (
+                  <p className="text-[#8b4c2c]">Translating...</p>
+                ) : translationError ? (
+                  <p className="text-red-500">{translationError}</p>
+                ) : (
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {translatedWords.map((word, index) => (
+                      <span key={index} className="text-lg text-[#8b4c2c] bg-[#c9a383] px-2 py-1 rounded-lg">
+                        {word}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <select
+                  value={selectedLanguage}
+                  onChange={(e) => setSelectedLanguage(e.target.value)}
+                  className="w-full px-2 py-1.5 rounded-lg border border-[#c9a383] text-sm focus:outline-none focus:ring-2 focus:ring-[#8b4c2c]"
+                >
+                  <option value="">Select Language</option>
+                  {languages.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
