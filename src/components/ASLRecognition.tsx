@@ -21,11 +21,7 @@ interface Language {
 
 const languages: Language[] = [
   { code: 'en', name: 'English' },
-  { code: 'ta', name: 'Tamil' },
-  { code: 'hi', name: 'Hindi' },
-  { code: 'te', name: 'Telugu' },
-  { code: 'ml', name: 'Malayalam' },
-  { code: 'kn', name: 'Kannada' }
+  { code: 'ta', name: 'Tamil' }
 ];
 
 
